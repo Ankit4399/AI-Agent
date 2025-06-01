@@ -6,7 +6,7 @@ const ticketSchema  = new Schema({
     status : {type: String, default: "TODO", enum: ['TODO', 'IN_PROGRESS', 'DONE']},
     priority : String,
     createdby : {type: Schema.Types.ObjectId, ref: 'User'},
-    assignedto : {type: Schema.Types.ObjectId, ref: 'User',default: null},
+    assignedTo : {type: Schema.Types.ObjectId, ref: 'User',default: null},
     deadline : Date,
     helpfulNotes : String,
     relatedSkills : [String],
