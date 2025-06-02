@@ -1,5 +1,6 @@
-import express from 'express'
-import { getusers, login, logout, Signup, updateuser } from '../controllers/user.controller';
+import express from 'express';
+import {auth} from '../middlewares/auth.middleware.js';
+import { getusers, login, logout, Signup, updateuser } from '../controllers/user.controller.js';
 const router  = express.Router();
 
 router.post('/signup',Signup)

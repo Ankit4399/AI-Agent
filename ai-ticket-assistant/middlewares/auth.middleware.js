@@ -12,4 +12,4 @@ export const auth = async(req,res,next)=>{
     } catch (error) {
         res.status(500).json({error : "Invalid token"})
     }
-}
+};

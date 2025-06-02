@@ -1,6 +1,6 @@
 import {inngest} from '../client.js';
 import {NonRetriableError} from 'inngest';
-import Ticket from "../../models/user.model.js"
+import Ticket from "../../models/ticket.model.js"
 import analyseTicket from '../../utils/ai.js';
 import User from '../../models/user.model.js';
 import { sendMail } from '../../utils/mailer.js';

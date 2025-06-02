@@ -1,5 +1,5 @@
-import {inngest} from 'inngest';
+import {Inngest} from 'inngest';
 
-export const inngest = new inngest(
+export const inngest = new Inngest(
     {id : "ticketing-system"}
 )
