@@ -7,7 +7,7 @@ export const Signup = async (req,res) =>{
     try {
         const {email,password,skills = []} = req.body;
         const hashed = await bcrypt.hash(password,10);
-        const user = await User.create({email,password : hashed,skills}).select("-password")
+        const user = await User.create({email,password : hashed,skills})
     
         //fire inngest  event
         await inngest.send({
@@ -20,10 +20,14 @@ export const Signup = async (req,res) =>{
             role : user.role,
         },process.env.JWT_SECRET)
 
-        res.json({user,token})
+        // Remove password from user object before sending response
+        const userWithoutPassword = user.toObject();
+        delete userWithoutPassword.password;
+
+        return res.status(201).json({user: userWithoutPassword, token})
 
     } catch (error) {
-        res.status(500).json({error : "Signup Failed", details : error.message})
+        return res.status(500).json({error : "Signup Failed", details : error.message})
     }
 };
 
